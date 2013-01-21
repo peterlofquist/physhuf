@@ -1,0 +1,23 @@
+{
+ "BundleType": "Application",
+ "AppIcon": {
+     "36x18": ""
+  },
+ "AppName": {
+     "en": "amazing"
+  },
+	"BundleIdentifier": "helloworld",
+ "SupportedLanguages": [
+     "en"
+ ],
+ 	"Dependencies": {
+	    "api": "0.1.0",
+	    "resources": "0.1.0",
+	    "util": "0.1.0"
+	},
+ "RequiredInterface": 1,
+ "RequiredPermissions": [
+		"https://*",
+		"http://*"
+	]
+}

@@ -1,0 +1,106 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+  width: 1000px;
+  height: 800px;
+  overflow: scroll-hidden;
+}
+
+.item {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  width: 200px;
+  height: 200px;
+  float: left;
+  display: inline-block;
+  background-size: 100%;
+  opacity: 0;
+  /*transform:scale(0);
+-ms-transform:scale(0); 
+-moz-transform:scale(0);
+-webkit-transform:scale(0); 
+-o-transform:scale(0); Opera */
+  
+          transition: .5s;
+     -moz-transition: .5s; /* Firefox 4 */
+  -webkit-transition: .5s; /* Safari and Chrome */
+       -o-transition: .5s; /* Opera */
+}
+
+.active {
+  border-radius: 1px;
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: grayscale(0%);
+  box-shadow: 0 0 25px #fff;
+  background-color: #fff;
+  box-shadow: inset 5px 5px #fff, inset -5px -5px #fff, 0 0 20px #000;
+  z-index: 2;
+  position: relative;
+          transform:scale(1.15);
+      -ms-transform:scale(1.15); /* IE 9 */
+     -moz-transform:scale(1.15); /* Firefox */
+  -webkit-transform:scale(1.15); /* Safari and Chrome */
+       -o-transform:scale(1.15); /* Opera */
+  
+}
+
+.active:before {
+  
+}
+
+.blue {
+  background-color: blue;
+}
