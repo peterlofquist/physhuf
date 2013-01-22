@@ -15,6 +15,7 @@ var socket = io.connect('[YOUR NODE SOCKET.IO URL GOES HERE]');
 var array3 = [];
 var nowActive = '1_1';
 var hot = '6k87aly7hVbBrbGY5PMwCf';
+var key = 'CFWX4WZ71KJAGVH3W';
 var trigger = false;
 
 var elArray = ["0_0", "1_0", "2_0", "3_0", "4_0", "0_1", "1_1", "2_1", "3_1", "4_1", "0_2", "1_2", "2_2", "3_2", "4_2", "0_3", "1_3", "2_3", "3_3", "4_3", "0_4", "1_4", "2_4", "3_4", "4_4"];
@@ -188,7 +189,7 @@ function getSong() {
   
   var querySplit = query.split("|");
   
-  var url = "http://developer.echonest.com/api/v4/song/search?api_key=CFWX4WZ71KJAGVH3W&format=json&results=1&artist=" + querySplit[0] + "&title=" + querySplit[1] + "&bucket=id:spotify-WW&&bucket=tracks";
+  var url = "http://developer.echonest.com/api/v4/song/search?api_key=" + key + "&format=json&results=1&artist=" + querySplit[0] + "&title=" + querySplit[1] + "&bucket=id:spotify-WW&&bucket=tracks";
 
   $.ajax({
 	  type: "GET",
@@ -217,8 +218,6 @@ function getSong() {
 
 function shufflePlayingField() {
   
-  var key = "CFWX4WZ71KJAGVH3W";
-  
   var url = "http://developer.echonest.com/api/v4/artist/top_hottt?api_key=" + key + "&format=json&results=20&start=0&bucket=songs";
   $.ajax({
 	  type: "GET",
@@ -232,7 +231,7 @@ function shufflePlayingField() {
       randomShuffle = Math.floor(Math.random() * information.songs.length);
       //console.log(information.songs[randomShuffle]);
       
-      var url = "http://developer.echonest.com/api/v4/song/search?api_key=CFWX4WZ71KJAGVH3W&format=json&results=1&artist=" + information.name + "&title=" + information.songs[randomShuffle].title + "&bucket=id:spotify-WW&&bucket=tracks";
+      var url = "http://developer.echonest.com/api/v4/song/search?api_key=" + key + "&format=json&results=1&artist=" + information.name + "&title=" + information.songs[randomShuffle].title + "&bucket=id:spotify-WW&&bucket=tracks";
 
       $.ajax({
     	  type: "GET",
@@ -293,8 +292,7 @@ function populateBoard() {
     contentType: "application/json",
     success: function (data) {
       var artist = data.track.artists[0].name;
-      
-      var key = "CFWX4WZ71KJAGVH3W";
+
       url = "http://developer.echonest.com/api/v4/artist/search?api_key=" + key + "&format=json&name=" + artist + "&results=1";
       
       $.ajax({
@@ -381,8 +379,6 @@ function getCovers(array, array2) {
 
 function fix(array) {
   
-  var key = "CFWX4WZ71KJAGVH3W";
-  
   var newArray = [];
   var j = 0;
   for(var i = 0; i < array.length; i++) {
@@ -459,10 +455,11 @@ function printBoxes(array) {
 function getAlbumCovers(array) {
   
   var tempArray = [];
+  var lastfmKey = 'a710fbf71d1c67c8786389160c3029e1';
   var j = 0;
   for(var i = 0; i < array.length; i++) {
     
-    var url = "http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=a710fbf71d1c67c8786389160c3029e1&artist=" + array[i].artist_name + "&track=" + array[i].title + "&format=json";
+    var url = "http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=" + lastfmKey + "&artist=" + array[i].artist_name + "&track=" + array[i].title + "&format=json";
     //var url = "http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=a710fbf71d1c67c8786389160c3029e1&artist=" + array[i].artist_name + "&track=" + array[i].title;
     $.ajax({
   	  type: "GET",
